@@ -1,0 +1,57 @@
+<app-headbar></app-headbar>
+<section class="section">
+    <div class="container">
+        <div class="notification is-danger" *ngIf="errors.length > 0">
+            <b>Erro ao processar o formulário! Verifique a(s) mensagem(ns) e tente novamente.</b>
+            <br><br>
+            <ul>
+                <li *ngFor="let err of errors">{{err.message}}</li>
+            </ul>
+        </div>
+        <form [formGroup]="form">
+            <div class="columns">
+                <div class="column is-half is-offset-one-quarter">
+                    <div class="heading animated fadeIn">
+                        <h2 class="title larger-text">Olá {{ nome }}!</h2>
+                        <h2 class="title medium-text">Escolha data e o horário desejado para sua consulta</h2>
+                    </div>
+                    <br>
+                    <div class="field">
+                        <!-- <label class="label">Data</label> -->
+                        <div class="select is-fullwidth">
+                            <select (change)="onChange($event.target.value)" id="selectDateControl" formControlName="selectDates">
+                                  <option></option>  
+                                  <option *ngFor="let item of availableDates" [value]="item._id">  
+                                        {{item.date}}
+                                        </option>
+                                </select>
+                        </div>
+                    </div>
+                    <br>
+                    <p>
+                        <button (click)="submit()" class="button is-primary is-outlined is-large is-fullwidth" [disabled]="!form.valid">
+                                <i class="fa fa-check"></i>&nbsp;&nbsp;Finalizar</button>
+
+                    </p>
+                </div>
+            </div>
+        </form>
+    </div>
+</section>
+<app-footer></app-footer>
+
+<div class="modal" id="modal">
+    <div class="modal-background"></div>
+    <div class="modal-card">
+        <header class="modal-card-head">
+            <p class="modal-card-title small-text">Mejor con Salud | Agendamento de Consulta</p>
+            <button class="delete" (click)="hideModal()" aria-label="close"></button>
+        </header>
+        <section class="modal-card-body has-text-centered">
+            Desculpe! Não existem mais horários disponíveis para agendamento.
+        </section>
+        <footer class="modal-card-foot">
+            <button (click)="hideModal()" class="button">Ok</button>
+        </footer>
+    </div>
+</div>

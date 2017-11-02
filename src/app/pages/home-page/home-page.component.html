@@ -1,0 +1,36 @@
+<section class="hero is-primary is-fullheight">
+    <div class="hero-body">
+        <div class="container has-text-centered">
+            <h1 class="title pacifico larger-text">
+                Mejor con Salud
+            </h1>
+            <br>
+            <h2 class="subtitle medium-text column is-half is-offset-one-quarter">
+                Seja bem vindo! Se você pretende agendar uma consulta com um de nossos profissionais de nutrição, clique em Continuar.
+            </h2>
+            <div class="columns">
+                <div class="column is-half is-offset-one-quarter">
+                    <p>
+                        <a routerLink="/stepone" class="button is-primary is-inverted is-outlined is-large is-fullwidth">Continuar &nbsp;&nbsp;<i class="fa fa-arrow-right"></i></a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="modal" id="modal">
+    <div class="modal-background"></div>
+    <div class="modal-card">
+        <header class="modal-card-head">
+            <p class="modal-card-title">Termos de Uso</p>
+            <button class="delete" (click)="hideModal()" aria-label="close"></button>
+        </header>
+        <section class="modal-card-body">
+            Aqui vão os termos de uso do site
+        </section>
+        <footer class="modal-card-foot">
+            <button (click)="hideModal()" class="button">Ok</button>
+        </footer>
+    </div>
+</div>

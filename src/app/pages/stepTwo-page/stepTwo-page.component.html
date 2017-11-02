@@ -1,0 +1,98 @@
+<app-headbar></app-headbar>
+<section class="section">
+    <div class="container">
+        <div class="notification is-danger" *ngIf="errors.length > 0">
+            <b>Erro ao processar o formulário! Verifique a(s) mensagem(ns) e tente novamente.</b>
+            <br><br>
+            <ul>
+                <li *ngFor="let err of errors">{{err.message}}</li>
+            </ul>
+        </div>
+        <form [formGroup]="form">
+            <div class="columns">
+                <div class="column is-half is-offset-one-quarter">
+
+                    <div class="heading animated fadeIn">
+                        <h2 class="title larger-text">Informe seus dados pessoais</h2>
+                    </div>
+                    <br>
+                    <div class="field">
+                        <label class="label">Email</label>
+                        <div class="control">
+                            <input class="input" type="email" placeholder="Informe seu email..." formControlName="email" [ngClass]="{'is-danger': (!form.controls.email.valid && !form.controls.email.pristine)}">
+                            <span class="tag is-danger" *ngIf="!form.controls.email.valid && !form.controls.email.pristine">Email inválido</span>
+                        </div>
+                    </div>
+
+                    <div class="field">
+                        <label class="label">Nome Completo</label>
+                        <div class="control">
+                            <input class="input" type="text" placeholder="Informe seu nome completo" formControlName="name" [ngClass]="{'is-danger': (!form.controls.name.valid && !form.controls.name.pristine)}">
+                            <span class="tag is-danger" *ngIf="!form.controls.name.valid && !form.controls.name.pristine">Nome inválido</span>
+                        </div>
+                    </div>
+
+
+                    <div class="field">
+                        <label class="label">Data de Nascimento</label>
+                        <div class="control">
+                            <input class="input" type="date" placeholder="Informe sua data de nascimento" formControlName="birthDate" [ngClass]="{'is-danger': (!form.controls.birthDate.valid && !form.controls.birthDate.pristine)}">
+                            <span class="tag is-danger" *ngIf="!form.controls.birthDate.valid && !form.controls.birthDate.pristine">Data de Nascimento inválida</span>
+                        </div>
+                    </div>
+
+                    <div class="field">
+                        <label class="label">Localizacão</label>
+                        <div class="control">
+                            <input class="input" type="text" placeholder="Informe sua localização" formControlName="localization" [ngClass]="{'is-danger': (!form.controls.localization.valid && !form.controls.localization.pristine)}">
+                            <span class="tag is-danger" *ngIf="!form.controls.localization.valid && !form.controls.localization.pristine">Localização inválida</span>
+                        </div>
+                    </div>
+
+
+                    <div class="field">
+                        <label class="label">Peso</label>
+                        <div class="control">
+                            <input class="input" type="number" placeholder="Informe seu peso" formControlName="weight" [ngClass]="{'is-danger': (!form.controls.weight.valid && !form.controls.weight.pristine)}">
+                            <span class="tag is-danger" *ngIf="!form.controls.weight.valid && !form.controls.weight.pristine">Peso inválido</span>
+                        </div>
+                    </div>
+
+                    <div class="field">
+                        <label class="label">Altura</label>
+                        <div class="control">
+                            <input class="input" type="text" placeholder="Informe sua altura" formControlName="height" [ngClass]="{'is-danger': (!form.controls.height.valid && !form.controls.height.pristine)}">
+                            <span class="tag is-danger" *ngIf="!form.controls.height.valid && !form.controls.height.pristine">Altura inválida</span>
+                        </div>
+                    </div>
+                    <!-- <p class="control">
+                        <input class="input is-large" type="text" placeholder="Informe seu email.." formControlName="email">
+                    </p>
+
+                    <p class="control">
+                        <input class="input is-large" type="text" placeholder="Informe seu nome completo.." formControlName="nome">
+                    </p>
+                    <p class="control">
+                        <input class="input is-large" type="text" placeholder="Informe sua data de nascimento..." formControlName="dataNascimento">
+                    </p>
+                    <p class="control">
+                        <input class="input is-large" type="text" placeholder="Informe sua localizção..." formControlName="localizacao">
+                    </p>
+                    <p class="control">
+                        <input class="input is-large" type="text" placeholder="Informe seu peso..." formControlName="peso">
+                    </p>
+                    <p class="control">
+                        <input class="input is-large" type="text" placeholder="Informe sua altura..." formControlName="altura">
+                    </p> -->
+                    <br>
+                    <p>
+                        <button (click)="submit()" class="button is-primary is-outlined is-large is-fullwidth" [disabled]="!form.valid">
+                            Próximo >></button>
+
+                    </p>
+                </div>
+            </div>
+        </form>
+    </div>
+</section>
+<app-footer></app-footer>
