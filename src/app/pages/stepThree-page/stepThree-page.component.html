@@ -12,12 +12,11 @@
             <div class="columns">
                 <div class="column is-half is-offset-one-quarter">
                     <div class="heading animated fadeIn">
-                        <h2 class="title larger-text">Olá {{ nome }}!</h2>
+                        <h2 class="title larger-text">Olá {{ name }}!</h2>
                         <h2 class="title medium-text">Escolha data e o horário desejado para sua consulta</h2>
                     </div>
                     <br>
                     <div class="field">
-                        <!-- <label class="label">Data</label> -->
                         <div class="select is-fullwidth">
                             <select (change)="onChange($event.target.value)" id="selectDateControl" formControlName="selectDates">
                                   <option></option>  
@@ -31,7 +30,6 @@
                     <p>
                         <button (click)="submit()" class="button is-primary is-outlined is-large is-fullwidth" [disabled]="!form.valid">
                                 <i class="fa fa-check"></i>&nbsp;&nbsp;Finalizar</button>
-
                     </p>
                 </div>
             </div>

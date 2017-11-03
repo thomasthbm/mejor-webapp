@@ -13,8 +13,9 @@ import { DatePipe } from '@angular/common';
 })
 export class StepThreePageComponent implements OnInit {
   public form: FormGroup;
-  public nome: string = '';
+  public name: string = '';
   public availableDates = [];
+  public scheduledDates = [];
   public schedule = {};
   public errors: any[] = [];
 
@@ -27,7 +28,7 @@ export class StepThreePageComponent implements OnInit {
       ])]
     });
 
-    this.nome = localStorage.getItem('_name');
+    this.name = localStorage.getItem('_name');
   }
 
   ngOnInit() {

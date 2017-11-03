@@ -8,7 +8,12 @@ import {Ui} from '../../utils/ui';
 })
 export class HomePageComponent implements OnInit {
 
-  constructor(private ui: Ui) { }
+  constructor(private ui: Ui) {
+    localStorage.removeItem('_name');
+    localStorage.removeItem('_email');
+    localStorage.removeItem('_userId');
+    localStorage.removeItem('_selectedDate');
+   }
 
   ngOnInit() {
   }

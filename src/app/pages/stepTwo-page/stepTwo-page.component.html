@@ -61,29 +61,10 @@
                     <div class="field">
                         <label class="label">Altura</label>
                         <div class="control">
-                            <input class="input" type="text" placeholder="Informe sua altura" formControlName="height" [ngClass]="{'is-danger': (!form.controls.height.valid && !form.controls.height.pristine)}">
+                            <input class="input" type="text" (keydown)="preventNumbers($event)" maxlength="4" placeholder="Informe sua altura" formControlName="height" [ngClass]="{'is-danger': (!form.controls.height.valid && !form.controls.height.pristine)}">
                             <span class="tag is-danger" *ngIf="!form.controls.height.valid && !form.controls.height.pristine">Altura inválida</span>
                         </div>
                     </div>
-                    <!-- <p class="control">
-                        <input class="input is-large" type="text" placeholder="Informe seu email.." formControlName="email">
-                    </p>
-
-                    <p class="control">
-                        <input class="input is-large" type="text" placeholder="Informe seu nome completo.." formControlName="nome">
-                    </p>
-                    <p class="control">
-                        <input class="input is-large" type="text" placeholder="Informe sua data de nascimento..." formControlName="dataNascimento">
-                    </p>
-                    <p class="control">
-                        <input class="input is-large" type="text" placeholder="Informe sua localizção..." formControlName="localizacao">
-                    </p>
-                    <p class="control">
-                        <input class="input is-large" type="text" placeholder="Informe seu peso..." formControlName="peso">
-                    </p>
-                    <p class="control">
-                        <input class="input is-large" type="text" placeholder="Informe sua altura..." formControlName="altura">
-                    </p> -->
                     <br>
                     <p>
                         <button (click)="submit()" class="button is-primary is-outlined is-large is-fullwidth" [disabled]="!form.valid">

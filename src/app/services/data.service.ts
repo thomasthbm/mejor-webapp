@@ -28,6 +28,12 @@ export class DataService {
         .map((res: Response) => res.json());
     }
 
+    getScheduledDates(userId){
+        return this.http
+        .get(this.serviceUrl + 'calendar/scheduled/' + userId)
+        .map((res: Response) => res.json());
+    }
+
     createSchedule(data: any) {
         return this.http
         .post(this.serviceUrl + 'schedule', data)
